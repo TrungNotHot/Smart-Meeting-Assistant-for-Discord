@@ -1,0 +1,25 @@
+output:
+{
+    user_name
+    float 32
+    kết thúc câu khi silence > 500 ms
+}
+
+yêu cầu: ssrc đổi <=> kết thúc câu + segment/sentences
+
+
+th1:start: bắt đầu khi trước đó là 1 đoạn im lặng
+
+
+- ở đây sẽ không chèn padding
+
+
+đang xử lý out = (nói + im lặng < 0.5s) thi
+
+
+cần kiểm tra silenc liên tiếp:
+nếu có silence xen kẻ thì cứ côn
+
+ưu tiên xử lý trường hợp 1 người trước
+
+lưu ý: cần chỉnh lại sao cho im lặng, audio đồ < minchunk để đảm bảo realtime
